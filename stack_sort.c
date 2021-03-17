@@ -117,7 +117,67 @@ void	p_a_b(int *st1, int *st2, int *topst1, int *topst2, int sizest2)
 }
 
 
-void	r_a_b(int *stack, )
+void	r_a_b(int *stack, int top, int size)
+{
+	int tmp;
+	int tmp2;
+	int tmp_top;
+	int *tmp_stack;
+
+	tmp_top = -1;
+	tmp_stack = (int *)malloc(sizeof(int) * (size + 1));
+	tmp = pop(stack, &top);
+	while (!is_empty(top))
+	{
+		tmp2 = pop(stack, &top);
+		push(tmp2, tmp_stack, &tmp_top, size);
+	}
+	push(tmp, stack, &top, size);
+	while (!is_empty(tmp_top))
+	{
+		tmp2 = pop(tmp_stack, &tmp_top);
+		push(tmp2, stack, &top, size);
+	}
+}
+
+void	r_r(int *a, int *b, int topa, int topb, int sizea, int sizeb)
+{
+	if (!is_empty(topa))
+		r_a_b(a, topa, sizea);
+	if (!is_empty(topb))
+		r_a_b(b, topb, sizeb);
+}
+
+void	r_r_a_b(int *stack, int top, int size)
+{
+	int tmp;
+	int tmp2;
+	int tmp_top;
+	int *tmp_stack;
+
+	tmp_top = -1;
+	tmp_stack = (int *)malloc(sizeof(int) * (size + 1));
+	while (!is_empty(top))
+	{
+		tmp2 = pop(stack, &top);
+		push(tmp2, tmp_stack, &tmp_top, size);
+	}
+	tmp = pop(tmp_stack, &tmp_top);
+	while (!is_empty(tmp_top))
+	{
+		tmp2 = pop(tmp_stack, &tmp_top);
+		push(tmp2, stack, &top, size);
+	}
+	push(tmp, stack, &top, size);
+}
+
+void	r_r_r(int *a, int *b, int topa, int topb, int sizea, int sizeb)
+{
+	if (!is_empty(topa))
+		r_r_a_b(a, topa, sizea);
+	if (!is_empty(topb))
+		r_r_a_b(b, topb, sizeb);
+}
 
 /**
  * Sort Function to sort stack using another stack
@@ -125,7 +185,7 @@ void	r_a_b(int *stack, )
 
 void	sort_stack(int *a, int top, int size, int fa)
 {
-
+	 
 }
 
 
@@ -166,8 +226,17 @@ int		main(int argc, char **argv)
 				i++;
 			}
 			fa = atoi(argv[sizea]);
-			sort_stack(a, top, size, fa);
+			//sort_stack(a, top, size, fa);
 			i = sizea - 1;
+			r_a_b(a, topa, sizea);
+			while (i >= 0)
+			{
+				printf("%7d", a[i]);
+				i--;
+			}
+			printf("\n-----------------------------------------------------------------------\n");
+			i = sizea - 1;
+			r_r_a_b(a, topa, sizea);
 			while (i >= 0)
 			{
 				printf("%7d", a[i]);
