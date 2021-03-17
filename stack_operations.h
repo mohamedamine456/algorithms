@@ -3,6 +3,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct s_rotate_var
+{
+	int	*a;
+	int	*b;
+	int	topa;
+	int	topb;
+	int	sizea;
+	int	sizeb;
+}				t_rotate_var;
+
 int		is_empty(int top);
 int		is_full(int top, int size);
 int		peek(int *stack, int top);
