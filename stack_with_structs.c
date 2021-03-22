@@ -25,7 +25,7 @@ t_stack_items	*new_item()
 	return (new);
 }
 
-void	push(int number, t_stack_items *top)
+void	push(int number, t_stack_items **top)
 {
 	t_stack_items *tmp;
 
@@ -35,8 +35,8 @@ void	push(int number, t_stack_items *top)
 	else
 	{
 		tmp->number = number;
-		tmp->next = top;
-		top = tmp;
+		tmp->next = *top;
+		(*top) = tmp;
 	}
 }
 
@@ -54,14 +54,14 @@ int		peek(t_stack_items *top)
 		return (top->number);
 }
 
-void	pop(t_stack_items *top)
+void	pop(t_stack_items **top)
 {
 	t_stack_items *tmp;
 
-	if (!is_empty(top))
+	if (!is_empty(*top))
 	{
-		tmp = top;
-		top = top->next;
+		tmp = *top;
+		*top = (*top)->next;
 		tmp->next = NULL;
 		free(tmp);
 	}
@@ -84,17 +84,17 @@ int main()
     t_stack_items *top;
 	top = NULL;
 
-    push(2, top); 
-    push(1, top); 
-    push(3, top); 
-    push(6, top);
-	push(5, top);
-    push(8, top);
- 
+    push(2, &top); 
+    push(1, &top); 
+    push(3, &top); 
+    push(6, &top);
+	push(5, &top);
+    push(8, &top);
+	printf("\n---------------------------------------------------------\n");
     print_all(top); 
-    pop(top); 
-    pop(top); 
-
+    pop(&top); 
+    pop(&top); 
+	printf("\n---------------------------------------------------------\n");
 	print_all(top);
     return 0; 
 }
