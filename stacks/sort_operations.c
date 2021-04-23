@@ -13,104 +13,102 @@
 
 t_stack	s_a_b(t_stack stack)
 {
-        int temp1;
-        int temp2;
+	int temp1;
+	int temp2;
 
-        if (*top > 0)
-        {
-                temp1 = peek(stack);
-                pop(&stack.top);
-                temp2 = peek(stack);
-                pop(&stack.top);
-                stack = push(temp2, stack);
-                stack = push(temp1, stack);
-        }
-		return (stack);
+	if (stack.top > 0)
+	{
+		temp1 = peek(stack);
+		pop(&stack.top);
+		temp2 = peek(stack);
+		pop(&stack.top);
+		stack = push(temp2, stack);
+		stack = push(temp1, stack);
+	}
+	return (stack);
 }
 
 void    s_s(t_stack *a, t_stack *b)
 {
-        *a = s_a_b(*a);
-        *b = s_a_b(*b);
+	*a = s_a_b(*a);
+	*b = s_a_b(*b);
 }
 
 void    p_a_b(t_stack *a, t_stack *b)
 {
-        int temp;
+	int temp;
 
-        if (!is_empty(a->top))
-        {
-                temp = peek(*a);
-                pop(&(a->top));
-                *b = push(temp, *b);
-        }
+	if (!is_empty(a->top))
+	{
+		temp = peek(*a);
+		pop(&(a->top));
+		*b = push(temp, *b);
+	}
 }
 
 
-void    r_a_b(int *stack, int top, int size)
+t_stack	r_a_b(t_stack stack)
 {
-        int tmp;
-        int tmp2;
-        int tmp_top;
-        int *tmp_stack;
+	int tmp;
+	int tmp2;
+	t_stack tmp_stack;
 
-        tmp_top = -1;
-        tmp_stack = (int *)malloc(sizeof(int) * (size + 1));
-        tmp = peek(stack, top);
-        pop(&top);
-        while (!is_empty(top))
-        {
-                tmp2 = peek(stack, top);
-                pop(&top);
-                push(tmp2, tmp_stack, &tmp_top, size);
-        }
-        push(tmp, stack, &top, size);
-        while (!is_empty(tmp_top))
-        {
-                tmp2 = peek(tmp_stack, tmp_top);
-                pop(&tmp_top);
-                push(tmp2, stack, &top, size);
-        }
+	tmp_stack = create_stack(stack.size);
+	tmp = peek(stack);
+	pop(&(stack.top));
+	while (!is_empty(stack.top))
+	{
+		tmp2 = peek(stack);
+		pop(&(stack.top));
+		tmp_stack = push(tmp2, tmp_stack);
+	}
+	stack = push(tmp, stack);
+	while (!is_empty(tmp_stack.top))
+	{
+		tmp2 = peek(tmp_stack);
+		pop(&(tmp_stack.top));
+		stack = push(tmp2, stack);
+	}
+	return (stack);
 }
 
-void    r_r(int *a, int *b, int topa, int topb, int sizea, int sizeb)
+void    r_r(t_stack *a, t_stack *b)
 {
-        if (!is_empty(topa))
-                r_a_b(a, topa, sizea);
-        if (!is_empty(topb))
-                r_a_b(b, topb, sizeb);
+	if (!is_empty(a->top))
+		*a = r_a_b(*a);
+	if (!is_empty(b->top))
+		*b = r_a_b(*b);
 }
 
-void    r_r_a_b(int *stack, int top, int size)
+t_stack	r_r_a_b(t_stack stack)
 {
-        int tmp;
-        int tmp2;
-        int tmp_top;
-        int *tmp_stack;
-
-        tmp_top = -1;
-        tmp_stack = (int *)malloc(sizeof(int) * (size + 1));
-        while (!is_empty(top))
-        {
-                tmp2 = peek(stack, top);
-                pop(&top);
-                push(tmp2, tmp_stack, &tmp_top, size);
-        }
-        tmp = peek(tmp_stack, tmp_top);
-        pop(&tmp_top);
-        while (!is_empty(tmp_top))
-        {
-                tmp2 = peek(tmp_stack, tmp_top);
-                pop(&tmp_top);
-                push(tmp2, stack, &top, size);
-        }
-        push(tmp, stack, &top, size);
+	int tmp;
+	int tmp2;
+	t_stack tmp_stack;
+	
+	tmp_stack = create_stack(stack.size);
+	while (!is_empty(stack.top))
+	{
+		tmp2 = peek(stack);
+		pop(&(stack.top));
+		tmp_stack = push(tmp2, tmp_stack);
+	}
+	tmp = peek(tmp_stack);
+	pop(&(tmp_stack.top));
+	while (!is_empty(tmp_stack.top))
+	{
+		tmp2 = peek(tmp_stack);
+		pop(&(tmp_stack.top));
+		stack = push(tmp2, stack);
+	}
+	stack = push(tmp, stack);
+	return (stack);
 }
 
-void    r_r_r(int *a, int *b, int topa, int topb, int sizea, int sizeb)
+void    r_r_r(t_stack *a, t_stack *b)
 {
-        if (!is_empty(topa))
-                r_r_a_b(a, topa, sizea);
-        if (!is_empty(topb))
-                r_r_a_b(b, topb, sizeb);
+	if (!is_empty(a->top))
+		*a = r_r_a_b(*a);
+	if (!is_empty(b->top))
+		*b = r_r_a_b(*b);
 }
