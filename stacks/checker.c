@@ -43,7 +43,7 @@ int		check_args(char **argv)
 int		main(int argc, char **argv)
 {
 	t_stack	stack_a;
-	char	**operations;
+	int		*operations;
 
 	if (argc < 2)
 		fatal();
@@ -54,8 +54,11 @@ int		main(int argc, char **argv)
 		else
 		{
 			stack_a = fill_stack(argc, argv);
-			print_all(stack_a);
-			//operations = read_operations();
+			operations = read_operations();
+			printf("---------------------------------------------------------------------\n");
+			print_all(stack_a);	
+			printf("\n---------------------------------------------------------------------\n");
+			print_operations(operations, 10);
 		}
 	}
 }
