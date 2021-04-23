@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/23 16:36:38 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/23 17:10:33 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int				ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
+char			**ft_resize_tab(char **old, char *chaine);
 
 /*
  * prototypes for fill_stack.c file
@@ -84,7 +85,7 @@ t_stack fill_stack(int argc, char **argv);
  * prototypes for read_operations.c file
 */
 
-int				*read_operations();
+int				*read_operations(int *len);
 int				is_operation(char *str);
 int				*ft_resize_list(int *old, int *size, int number);
 t_operations    word_enum(char *word);

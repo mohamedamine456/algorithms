@@ -1,6 +1,6 @@
 #include "stacks.h"
 
-int		*read_operations()
+int		*read_operations(int *len)
 {
 	int		size;
 	int		number;
@@ -18,6 +18,7 @@ int		*read_operations()
 		}
 		free(buff);
 	}
+	*len = size;
 	return (list_opers);
 }
 
@@ -57,6 +58,7 @@ int		*ft_resize_list(int *old, int *size, int number)
 		i++;
 	}
 	new[i] = number;
+	*size = i + 1;
 	free(old);
 	return (new);
 }

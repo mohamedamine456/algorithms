@@ -44,7 +44,9 @@ int		main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	int		*operations;
+	int		len;
 
+	len = 0;
 	if (argc < 2)
 		fatal();
 	else
@@ -54,11 +56,11 @@ int		main(int argc, char **argv)
 		else
 		{
 			stack_a = fill_stack(argc, argv);
-			operations = read_operations();
+			operations = read_operations(&len);
 			printf("---------------------------------------------------------------------\n");
 			print_all(stack_a);	
 			printf("\n---------------------------------------------------------------------\n");
-			print_operations(operations, 10);
+			print_operations(operations, len);
 		}
 	}
 }
