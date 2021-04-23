@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <stdlib.h>
+#include "stacks.h"
 
 // ################################ Error ########################################### //
 
@@ -39,11 +38,13 @@ int		check_args(char **argv)
 	return (0);
 }
 
-
 // #################################### Main ####################################### //
 
 int		main(int argc, char **argv)
 {
+	t_stack	stack_a;
+	char	**operations;
+
 	if (argc < 2)
 		fatal();
 	else
@@ -52,8 +53,9 @@ int		main(int argc, char **argv)
 			fatal();
 		else
 		{
-			write(1, "All Good", 8);
-			exit(0);
+			stack_a = fill_stack(argc, argv);
+			print_all(stack_a);
+			//operations = read_operations();
 		}
 	}
 }
