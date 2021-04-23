@@ -1,3 +1,5 @@
+#include "stacks.h"
+
 /**
  * Function from the subject
  * s_a_b : swap the last two elements in stack (a or b)
@@ -9,43 +11,38 @@
  * r_r_r : shift down elements of stack (a and b) by 1. the last elements become the first one.
  */
 
-
-typedef struct                  s_stack_items
-{
-        int                     number;
-        struct s_stack_items    *next;
-}                               t_stack_items;
-void    s_a_b(int *stack, int *top, int size)
+t_stack	s_a_b(t_stack stack)
 {
         int temp1;
         int temp2;
 
         if (*top > 0)
         {
-                temp1 = peek(stack, *top);
-                pop(top);
-                temp2 = peek(stack, *top);
-                pop(top);
-                push(temp2, stack, top, size);
-                push(temp1, stack, top, size);
+                temp1 = peek(stack);
+                pop(&stack.top);
+                temp2 = peek(stack);
+                pop(&stack.top);
+                stack = push(temp2, stack);
+                stack = push(temp1, stack);
         }
+		return (stack);
 }
 
-void    s_s(int *a, int *b, int *topa, int *topb, int sizea, int sizeb)
+void    s_s(t_stack *a, t_stack *b)
 {
-        s_a_b(a, topa, sizea);
-        s_a_b(b, topb, sizeb);
+        *a = s_a_b(*a);
+        *b = s_a_b(*b);
 }
 
-void    p_a_b(int *st1, int *st2, int *topst1, int *topst2, int sizest2)
+void    p_a_b(t_stack *a, t_stack *b)
 {
         int temp;
 
-        if (!is_empty(*topst1))
+        if (!is_empty(a->top))
         {
-                temp = peek(st1, *topst1);
-                pop(topst1);
-                push(temp, st2, topst2, sizest2);
+                temp = peek(*a);
+                pop(&(a->top));
+                *b = push(temp, *b);
         }
 }
 

@@ -1,12 +1,4 @@
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct		s_stack_items
-{
-    int						number;
-    struct s_stack_items	*next;
-}							t_stack_items;
+# include "stacks.h"
 
 void	fatal()
 {
@@ -52,6 +44,7 @@ int		peek(t_stack_items *top)
 {
 	if (!is_empty(top))
 		return (top->number);
+	return (-1);
 }
 
 void	pop(t_stack_items **top)
@@ -77,24 +70,4 @@ void	print_all(t_stack_items *top)
 		printf("%9d", tmp->number);
 		tmp = tmp->next;
 	}
-}
-
-int main() 
-{ 
-    t_stack_items *top;
-	top = NULL;
-
-    push(2, &top); 
-    push(1, &top); 
-    push(3, &top); 
-    push(6, &top);
-	push(5, &top);
-    push(8, &top);
-	printf("\n---------------------------------------------------------\n");
-    print_all(top); 
-    pop(&top); 
-    pop(&top); 
-	printf("\n---------------------------------------------------------\n");
-	print_all(top);
-    return 0; 
 }
