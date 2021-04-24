@@ -1,25 +1,25 @@
 #include "stacks.h"
 
-int		*read_operations(int *len)
+char	**read_operations()
 {
-	int		size;
 	int		number;
-	int		*list_opers;
+	char	**opers;
 	char	*buff;
 
-	size = 0;
-	list_opers = NULL;
+	opers = NULL;
 	while (get_next_line(0, &buff) > 0)
 	{
 		if (is_operation(buff))
+			opers = ft_resize_opers(opers, buff);
+		else
 		{
-			number = word_enum(buff);
-			list_opers = ft_resize_list(list_opers, &size, number);
+			free(buff);
+			ft_free_opers(opers);
+			fatal();
 		}
-		free(buff);
 	}
-	*len = size;
-	return (list_opers);
+	free(buff);
+	return (opers);
 }
 
 int		is_operation(char *str)
@@ -34,58 +34,10 @@ int		is_operation(char *str)
 	while (i < 11)
 	{
 		if (!ft_strcmp(str, opers[i]))
+		{
+			ft_free_opers(opers);
 			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int		*ft_resize_list(int *old, int *size, int number)
-{
-	int	*new;
-	int	i;
-	int	len;
-
-	i = 0;
-	if (old == NULL)
-		len = 0;
-	else
-		len = *size;
-	new = (int *)malloc((len + 1) * sizeof(int));
-	while (i < len)
-	{
-		new[i] = old[i];
-		i++;
-	}
-	new[i] = number;
-	*size = i + 1;
-	free(old);
-	return (new);
-}
-
-
-t_operations	word_enum(char *word)
-{
-	t_enum_operation operations[] = {
-		{sa, "sa"},
-		{sb, "sb"},
-		{ss, "ss"},
-		{pa, "pa"},
-		{pb, "pb"},
-		{ra, "ra"},
-		{rb, "rb"},
-		{rr, "rr"},
-		{rra, "rra"},
-		{rrb, "rrb"},
-		{rrr, "rrr"}
-	};
-	int		i;
-
-	i = 0;
-	while (i < 11)
-	{
-		if (!ft_strcmp(operations[i].name, word))
-			return (operations[i].index);
+		}
 		i++;
 	}
 	return (0);

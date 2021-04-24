@@ -1,52 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 10:39:01 by mlachheb          #+#    #+#             */
+/*   Updated: 2021/04/24 12:10:13 by mlachheb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <fcntl.h>
 #include "stacks.h"
-
-// ################################ Error ########################################### //
-
-void	fatal()
-{
-	write(1, "Error\n", 6);
-	exit(-1);
-}
-
-
-// ################################### Check ######################################## //
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-int		check_args(char **argv)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (argv[i] != NULL)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			if (!ft_isdigit(argv[i][j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-// #################################### Main ####################################### //
 
 int		main(int argc, char **argv)
 {
 	t_stack	stack_a;
-	int		*operations;
-	int		len;
+	char	**operations;
 
-	len = 0;
 	if (argc < 2)
 		fatal();
 	else
@@ -56,11 +27,14 @@ int		main(int argc, char **argv)
 		else
 		{
 			stack_a = fill_stack(argc, argv);
-			operations = read_operations(&len);
+			operations = read_operations();
 			printf("---------------------------------------------------------------------\n");
 			print_all(stack_a);	
 			printf("\n---------------------------------------------------------------------\n");
-			print_operations(operations, len);
+			print_operations(operations);
+			printf("\n---------------------------------------------------------------------\n");
+			stack_a = apply_operations(stack_a, operations);
+			print_all(stack_a);
 		}
 	}
 }

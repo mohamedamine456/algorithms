@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/23 17:10:33 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 12:09:46 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 # include "structs.h"
 # define BUFFER_SIZE 1
 # define OPERS "sa sb ss pa pb ra rb rr rra rrb rrr"
+
+/*
+ * prototypes for check_args.c file
+*/
+
+int				ft_isdigit(int c);
+int				check_args(char **args);
+
+/*
+ * prototypes for fatal.c file
+*/
+
+void			fatal();
+void			ko();
+void			ok();
 
 /*
  * prototypes for operations.c file
@@ -85,11 +100,21 @@ t_stack fill_stack(int argc, char **argv);
  * prototypes for read_operations.c file
 */
 
-int				*read_operations(int *len);
+char			**read_operations();
 int				is_operation(char *str);
-int				*ft_resize_list(int *old, int *size, int number);
-t_operations    word_enum(char *word);
 
-void			print_operations(int *list, int size);
+/*
+ * prototypes for apply_operations.c file
+*/
+
+t_stack			apply_operations(t_stack stack_a, char **opers);
+
+/*
+ * prototypes for opers_functions.c file
+*/
+int				ft_size_opers(char **tab);
+char			**ft_resize_opers(char **old, char *chaine);
+void			ft_free_opers(char **opers);
+void			print_operations(char **opers);
 
 #endif
