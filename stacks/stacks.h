@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 16:05:23 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:35:37 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ char			**ft_resize_tab(char **old, char *chaine);
  * prototypes for fill_stack.c file
 */
 
-t_stack fill_stack(int argc, char **argv);
+t_stack			fill_stack(int argc, char **argv);
+int				in_stack(long number, long *table, int size);
 
 /*
  * prototypes for read_operations.c file
