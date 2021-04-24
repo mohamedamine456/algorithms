@@ -6,11 +6,11 @@ t_stack	fill_stack(int argc, char **argv)
 	int		i;
 
 	stack = create_stack(argc - 1);
-	i = 0;
-	while (argv != NULL && argv[i + 1] != NULL)
+	i = ft_size_opers(argv) - 1;
+	while (argv != NULL && argv[i] != NULL && i > 0)
 	{
-		stack = push(ft_atoi(argv[i + 1]), stack);
-		i++;
+		stack = push(ft_atoi(argv[i]), stack);
+		i--;
 	}
 	return (stack);
 }
