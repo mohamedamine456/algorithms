@@ -8,7 +8,7 @@ typedef struct s_stack
 {
 	int			size;
 	int			top;
-	int			*items;
+	long		*items;
 }				t_stack;
 
 typedef enum e_operations

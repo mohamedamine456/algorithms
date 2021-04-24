@@ -1,6 +1,6 @@
 #include "stacks.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int			i;
 	int			neg;
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	return (res);
 }
 
-int	number(const char *str, int neg)
+long	number(const char *str, int neg)
 {
 	int			i;
 	long long	res;

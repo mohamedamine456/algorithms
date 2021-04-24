@@ -2,7 +2,6 @@
 
 char	**read_operations()
 {
-	int		number;
 	char	**opers;
 	char	*buff;
 

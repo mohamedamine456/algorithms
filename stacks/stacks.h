@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:39:04 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:05:23 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void			ok_ko(int retv);
 t_stack 		create_stack(int size);
 int     		is_empty(int top);
 int     		is_full(int top, int size);
-int     		peek(t_stack stack);
+long			peek(t_stack stack);
 void    		pop(int *top);
-t_stack			push(int new, t_stack stack);
+t_stack			push(long new, t_stack stack);
 void    		print_all(t_stack stack);
 
 /*
@@ -58,8 +58,8 @@ void    		r_r_r(t_stack *a, t_stack *b);
  * prototypes for ft_atoi.c file
 */
 
-int				number(const char *str, int neg);
-int				ft_atoi(const char *str);
+long			number(const char *str, int neg);
+long			ft_atoi(const char *str);
 
 /*
  * prototypes for get_next_line.c file
