@@ -22,8 +22,8 @@ t_stack	s_a_b(t_stack stack)
 		pop(&stack.top);
 		temp2 = peek(stack);
 		pop(&stack.top);
-		stack = push(temp2, stack);
 		stack = push(temp1, stack);
+		stack = push(temp2, stack);
 	}
 	return (stack);
 }
