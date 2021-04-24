@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/24 10:39:01 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:33:56 by mlachheb         ###   ########.fr       */
+/*   Created: 2021/04/24 13:17:05 by mlachheb          #+#    #+#             */
+/*   Updated: 2021/04/24 13:33:55 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include "stacks.h"
 
-int		main(int argc, char **argv)
+int		check_sort(t_stack stack)
 {
-	t_stack	stack_a;
-	char	**operations;
+	int	temp1;
+	int	temp2;
 
-	if (argc < 2)
-		fatal();
-	else
+	if (!is_empty(stack.top))
 	{
-		if (check_args(&(argv[1])))
-			fatal();
-		else
-		{
-			stack_a = fill_stack(argc, argv);
-			operations = read_operations();
-			stack_a = apply_operations(stack_a, operations);
-			if (check_sort(stack_a))
-				ok();
-			else
-				ko();
-		}
+		temp1 = peek(stack);
+		pop(&(stack.top));
 	}
+	while (!is_empty(stack.top))
+	{
+		temp2 = peek(stack);
+		pop(&(stack.top));
+		if (temp1 >= temp2)
+			return (0);
+		temp1 = temp2;
+	}
+	return (1);
 }

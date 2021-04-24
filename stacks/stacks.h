@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 12:09:46 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:26:30 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,12 @@ int				is_operation(char *str);
 */
 
 t_stack			apply_operations(t_stack stack_a, char **opers);
+
+/*
+ * prototypes for check_sort.c file
+*/
+
+int				check_sort(t_stack stack);
 
 /*
  * prototypes for opers_functions.c file
