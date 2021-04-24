@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 13:17:05 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:33:55 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:50:15 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		check_sort(t_stack stack)
 	int	temp1;
 	int	temp2;
 
+	if (stack.size - 1 != stack.top)
+		return (0);
 	if (!is_empty(stack.top))
 	{
 		temp1 = peek(stack);

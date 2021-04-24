@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 10:39:01 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:33:56 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:50:17 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int		main(int argc, char **argv)
 {
+	int		retv;
 	t_stack	stack_a;
 	char	**operations;
 
@@ -29,10 +30,10 @@ int		main(int argc, char **argv)
 			stack_a = fill_stack(argc, argv);
 			operations = read_operations();
 			stack_a = apply_operations(stack_a, operations);
-			if (check_sort(stack_a))
-				ok();
-			else
-				ko();
+			retv = check_sort(stack_a);
+			ft_free_opers(operations);
+			free(stack_a.items);
+			ok_ko(retv);
 		}
 	}
 }

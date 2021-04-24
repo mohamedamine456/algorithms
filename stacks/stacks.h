@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:26:30 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:39:04 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int				check_args(char **args);
 */
 
 void			fatal();
-void			ko();
-void			ok();
+void			ok_ko(int retv);
 
 /*
  * prototypes for operations.c file

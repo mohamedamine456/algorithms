@@ -69,6 +69,7 @@ t_stack	r_a_b(t_stack stack)
 		pop(&(tmp_stack.top));
 		stack = push(tmp2, stack);
 	}
+	free(tmp_stack.items);
 	return (stack);
 }
 
@@ -102,6 +103,7 @@ t_stack	r_r_a_b(t_stack stack)
 		stack = push(tmp2, stack);
 	}
 	stack = push(tmp, stack);
+	free(tmp_stack.items);
 	return (stack);
 }
 

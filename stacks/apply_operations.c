@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:17:39 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 13:32:57 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:42:28 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_stack	apply_operations(t_stack stack_a, char **opers)
 			r_r_r(&stack_a, &stack_b);
 		i++;
 	}
+	free(stack_b.items);
 	return (stack_a);
 }
