@@ -13,8 +13,8 @@
 
 t_stack	s_a_b(t_stack stack)
 {
-	long	temp1;
-	long	temp2;
+	long long	temp1;
+	long long	temp2;
 
 	if (stack.top > 0)
 	{
@@ -36,7 +36,7 @@ void    s_s(t_stack *a, t_stack *b)
 
 void    p_a_b(t_stack *a, t_stack *b)
 {
-	long	temp;
+	long long	temp;
 
 	if (!is_empty(a->top))
 	{
@@ -49,8 +49,8 @@ void    p_a_b(t_stack *a, t_stack *b)
 
 t_stack	r_a_b(t_stack stack)
 {
-	long	tmp;
-	long	tmp2;
+	long long	tmp;
+	long long	tmp2;
 	t_stack tmp_stack;
 
 	tmp_stack = create_stack(stack.size);
@@ -83,8 +83,8 @@ void    r_r(t_stack *a, t_stack *b)
 
 t_stack	r_r_a_b(t_stack stack)
 {
-	long	tmp;
-	long	tmp2;
+	long long	tmp;
+	long long	tmp2;
 	t_stack tmp_stack;
 	
 	tmp_stack = create_stack(stack.size);

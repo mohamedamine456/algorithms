@@ -3,8 +3,8 @@
 t_stack	fill_stack(int argc, char **argv)
 {
 	t_stack	stack;
-	int		i;
-	long	number;
+	int			i;
+	long long	number;
 
 	stack = create_stack(argc - 1);
 	i = ft_size_opers(argv) - 1;
@@ -22,7 +22,7 @@ t_stack	fill_stack(int argc, char **argv)
 	return (stack);
 }
 
-int		in_stack(long number, long *table, int size)
+int		in_stack(long long number, long long *table, int size)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 10:37:50 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 10:37:52 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/25 15:36:37 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int		check_args(char **argv)
 		while (argv[i][j] != '\0')
 		{
 			if (!ft_isdigit(argv[i][j]))
-				return (1);
+			{
+				if (!(j == 0 && argv[i][j] == '-' && argv[i][j + 1] != '\0'))
+					return (1);
+			}
 			j++;
 		}
 		i++;

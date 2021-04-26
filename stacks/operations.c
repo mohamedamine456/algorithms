@@ -6,7 +6,7 @@ t_stack	create_stack(int size)
 
 	stack.top = -1;
 	stack.size = size;
-	stack.items = (long *)malloc(size * sizeof(long));
+	stack.items = (long long *)malloc(size * sizeof(long long));
 	return (stack);
 }
 
@@ -14,7 +14,7 @@ t_stack	create_stack(int size)
  * Function test if the stack is empty
 */
 
-int		is_empty(int top)
+int	is_empty(int top)
 {
 	if (top == -1)
 		return (1);
@@ -26,7 +26,7 @@ int		is_empty(int top)
  * Function Test if the stack is full
 */
 
-int		is_full(int top, int size)
+int			is_full(int top, int size)
 {
 	if (top == size - 1)
 		return (1);
@@ -38,7 +38,7 @@ int		is_full(int top, int size)
  * Function returns top element in the stack
 */
 
-long	peek(t_stack stack)
+long long	peek(t_stack stack)
 {
 	return (stack.items[stack.top]);
 }
@@ -59,7 +59,7 @@ void	pop(int *top)
  * Function to push an element to stack
 */
 
-t_stack	push(long new, t_stack stack)
+t_stack	push(long long new, t_stack stack)
 {
 	if (!is_full(stack.top, stack.size))
 	{

@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 13:17:05 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 16:27:15 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/26 13:40:36 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		check_sort(t_stack stack)
 {
-	long	temp1;
-	long	temp2;
+	long long	temp1;
+	long long	temp2;
 
 	if (stack.size - 1 != stack.top)
 		return (0);

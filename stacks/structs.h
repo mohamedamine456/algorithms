@@ -8,28 +8,7 @@ typedef struct s_stack
 {
 	int			size;
 	int			top;
-	long		*items;
+	long long	*items;
 }				t_stack;
-
-typedef enum e_operations
-{
-	sa,
-	sb,
-	ss,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr
-}	t_operations;
-
-typedef struct s_enum_operation
-{
-	t_operations	index;
-	char			*name;
-}				t_enum_operation;
 
 #endif
