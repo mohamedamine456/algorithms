@@ -6,7 +6,7 @@
 #    By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/24 14:34:08 by mlachheb          #+#    #+#              #
-#    Updated: 2021/04/24 16:03:15 by mlachheb         ###   ########.fr        #
+#    Updated: 2021/04/26 14:51:25 by mlachheb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,3 +39,5 @@ clean:
 
 fclean:
 	rm -rf $(CHECKER_NAME)
+
+re: fclean all

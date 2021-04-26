@@ -17,7 +17,14 @@ char	**read_operations()
 			fatal();
 		}
 	}
-	free(buff);
+	if (is_operation(buff))
+		opers = ft_resize_opers(opers, buff);
+	else if (ft_strcmp(buff, ""))
+	{
+		free(buff);
+		ft_free_opers(opers);
+		fatal();
+	}
 	return (opers);
 }
 

@@ -57,84 +57,84 @@ echo "\n\t\t\t 🤹🏻‍♀️  CHECKER TEST 🤹🏻‍♀️"
 echo "\t\t\t -------------------"
 echo "Error management:"
 printf "test 1: "
-if [ "$(echo '' | ./checker kek 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker kek 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (non numeric parameter) (instr: none)"
 else
 echo "❌  - ./checker (non numeric parameter) (instr: none)"
 fi
 printf "test 2: "
-if [ "$(echo '' | ./checker 1 2 3 4 5 6 7 8 1 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker 1 2 3 4 5 6 7 8 1 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (duplicate numeric parameter) (instr: none)"
 else
 echo "❌  - ./checker (duplicate numeric parameter) (instr: none)"
 fi
 printf "test 3: "
-if [ "$(echo '' | ./checker 2147483648 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker 2147483648 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker MAX_INT+1(2147483648) (instr: none)"
 else
 echo "❌  - ./checker MAX_INT+1(2147483648) (instr: none)"
 fi
 printf "test 4: "
-if [ "$(echo '' | ./checker -2147483649 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker -2147483649 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker MIN_INT-1(2147483649) (instr: none)"
 else
 echo "❌  - ./checker MIN_INT-1(2147483649) (instr: none)"
 fi
 printf "test 5: "
-if [ "$(echo '' | ./checker | wc -l)" -eq 0 ]
+if [ "$(printf '' | ./checker | wc -l)" -eq 0 ]
 then
 echo "✅  - ./checker none (instr: none)"
 else
 echo "❌  - ./checker none (instr: none)"
 fi
 printf "test 6: "
-if [ "$(echo 'kek' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf 'kek' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (action doesn't exist) (instr: none)"
 else
 echo "❌  - ./checker (action doesn't exist) (instr: none)"
 fi
 printf "test 7: "
-if [ "$(echo 'ra  ' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf 'ra  ' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (action with two space after) (instr: none)"
 else
 echo "❌  - ./checker (action with two space after) (instr: none)"
 fi
 printf "test 8: "
-if [ "$(echo '  ra' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '  ra' | ./checker 4 1 2 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (action with two space before) (instr: none)"
 else
 echo "❌  - ./checker (action with two space before) (instr: none)"
 fi
 printf "test 9: "
-if [ "$(echo '' | ./checker - 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker - 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (only minus sign as parameter) (instr: none)"
 else
 echo "❌  - ./checker (only minus sign as parameter) (instr: none)"
 fi
 printf "test 10: "
-if [ "$(echo '' | ./checker + 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker + 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (only plus sign as parameter) (instr: none)"
 else
 echo "❌  - ./checker (only plus sign as parameter) (instr: none)"
 fi
 printf "test 11: "
-if [ "$(echo '' | ./checker -0 0 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker -0 0 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (duplicate zeros) (instr: none)"
 else
 echo "❌  - ./checker (duplicate zeros) (instr: none)"
 fi
 printf "test 12: "
-if [ "$(echo '' | ./checker 18446744073709551616 2>&1 | grep "Error" | wc -l)" -eq 1 ]
+if [ "$(printf '' | ./checker 18446744073709551616 2>&1 | grep "Error" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker (int64_t double overloaded (to zero)) (instr: none)"
 else
@@ -166,7 +166,7 @@ else
 echo "❌  - ./checker 0 1 2 (instr: none)"
 fi
 printf "test 2: "
-if [ "$(echo "pb\nra\npb\nra\nsa\nra\npa\npa" | ./checker 0 9 1 8 2 | grep "OK" | wc -l)" -eq 1 ]
+if [ "$(printf "pb\nra\npb\nra\nsa\nra\npa\npa\n" | ./checker 0 9 1 8 2 | grep "OK" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker 0 9 1 8 2 (instr: pb ra pb ra sa ra pa pa)"
 else
@@ -182,7 +182,7 @@ else
 echo "❌  - ./checker 1 2 3 4 5 (instr: pb pb)"
 fi
 printf "test 2: "
-if [ "$(echo "ra\nra\nrra\nrra" | ./checker 1 2 3 4 5 | grep "OK" | wc -l)" -eq 1 ]
+if [ "$(printf "ra\nra\nrra\nrra" | ./checker 1 2 3 4 5 | grep "OK" | wc -l)" -eq 1 ]
 then
 echo "✅  - ./checker 1 2 3 4 5 (instr: ra ra rra rra)"
 else
