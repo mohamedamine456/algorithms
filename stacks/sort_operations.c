@@ -62,6 +62,7 @@ t_stack	r_a_b(t_stack stack)
 		pop(&(stack.top));
 		tmp_stack = push(tmp2, tmp_stack);
 	}
+	stack.first = tmp;
 	stack = push(tmp, stack);
 	while (!is_empty(tmp_stack.top))
 	{
@@ -96,6 +97,7 @@ t_stack	r_r_a_b(t_stack stack)
 	}
 	tmp = peek(tmp_stack);
 	pop(&(tmp_stack.top));
+	stack.first = peek(tmp_stack);
 	while (!is_empty(tmp_stack.top))
 	{
 		tmp2 = peek(tmp_stack);
