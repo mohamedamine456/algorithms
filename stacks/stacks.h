@@ -37,9 +37,9 @@ void			ok_ko(int retv);
 t_stack 		create_stack(int size);
 int     		is_empty(int top);
 int     		is_full(int top, int size);
-long long		peek(t_stack stack);
+long		peek(t_stack stack);
 void    		pop(int *top);
-t_stack			push(long long new, t_stack stack);
+t_stack			push(long new, t_stack stack);
 void    		print_all(t_stack stack);
 
 /*
@@ -58,8 +58,8 @@ void    		r_r_r(t_stack *a, t_stack *b);
  * prototypes for ft_atoi.c file
 */
 
-long long		number(const char *str, int neg);
-long long		ft_atoi(const char *str);
+long		number(const char *str, int neg);
+long		ft_atoi(const char *str);
 
 /*
  * prototypes for get_next_line.c file
@@ -94,7 +94,7 @@ char			**ft_resize_tab(char **old, char *chaine);
 */
 
 t_stack			fill_stack(int argc, char **argv);
-int				in_stack(long long number, long long *table, int size);
+int				in_stack(long number, long *table, int size);
 
 /*
  * prototypes for read_operations.c file

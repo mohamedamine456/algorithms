@@ -8,7 +8,7 @@ typedef struct s_stack
 {
 	int			size;
 	int			top;
-	long long	*items;
+	long	*items;
 }				t_stack;
 
 #endif

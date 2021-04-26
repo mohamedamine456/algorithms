@@ -4,14 +4,15 @@ t_stack	fill_stack(int argc, char **argv)
 {
 	t_stack	stack;
 	int			i;
-	long long	number;
+	long	number;
 
 	stack = create_stack(argc - 1);
 	i = ft_size_opers(argv) - 1;
 	while (argv != NULL && argv[i] != NULL && i > 0)
 	{
 		number = ft_atoi(argv[i]);
-		if (in_stack(number, stack.items, stack.top))
+		if (in_stack(number, stack.items, stack.top)
+			|| number > INT32_MAX || number < INT32_MIN)
 		{
 			free(stack.items);
 			fatal();
@@ -22,7 +23,7 @@ t_stack	fill_stack(int argc, char **argv)
 	return (stack);
 }
 
-int		in_stack(long long number, long long *table, int size)
+int		in_stack(long number, long *table, int size)
 {
 	int i;
 

@@ -14,8 +14,8 @@
 
 int		check_sort(t_stack stack)
 {
-	long long	temp1;
-	long long	temp2;
+	long	temp1;
+	long	temp2;
 
 	if (stack.size - 1 != stack.top)
 		return (0);

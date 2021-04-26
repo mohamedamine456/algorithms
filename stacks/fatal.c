@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 10:38:52 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 14:52:47 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/26 14:01:28 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ void	fatal()
 void	ok_ko(int retv)
 {
 	if (retv)
+	{
 		write(1, "OK\n", 3);
+		exit(0);
+	}
 	else
+	{
 		write(1, "KO\n", 3);
-	exit(0);
+		exit(1);
+	}
 }
