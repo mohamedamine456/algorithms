@@ -8,8 +8,6 @@ t_stack	fill_stack(int argc, char **argv)
 
 	stack = create_stack(argc - 1);
 	i = ft_size_opers(argv) - 1;
-	if (argv[i] != NULL)
-		stack.first = ft_atoi(argv[i]);
 	while (argv != NULL && argv[i] != NULL && i > 0)
 	{
 		number = ft_atoi(argv[i]);

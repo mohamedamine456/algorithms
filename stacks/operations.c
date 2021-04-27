@@ -63,6 +63,8 @@ t_stack	push(long new, t_stack stack)
 {
 	if (!is_full(stack.top, stack.size))
 	{
+        if (is_empty(stack.top))
+            stack.first = new;
 		stack.top = stack.top + 1;
 		stack.items[stack.top] = new;
 	}

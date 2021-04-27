@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 # define BUFFER_SIZE 1
 # define OPERS "sa sb ss pa pb ra rb rr rra rrb rrr"
 

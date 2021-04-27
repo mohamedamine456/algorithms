@@ -21,6 +21,7 @@ t_stack	apply_operations(t_stack stack_a, char **opers)
 	i = 0;
 	while (opers != NULL && opers[i] != NULL)
 	{
+
 		if (!ft_strcmp(opers[i], "sa"))
 			stack_a = s_a_b(stack_a);
 		else if (!ft_strcmp(opers[i], "sb"))
