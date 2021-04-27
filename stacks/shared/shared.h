@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:24:53 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/27 09:29:35 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 11:52:09 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,13 @@ int				ft_size_opers(char **tab);
 char			**ft_resize_opers(char **old, char *chaine);
 void			ft_free_opers(char **opers);
 void			print_operations(char **opers);
+
+/*
+ * prototypes for check_sort.c file
+ */
+
+int				check_sort(t_stack stack);
+int				check_sort_as(t_stack stack);
+int				check_sort_ds(t_stack stack);
 
 #endif

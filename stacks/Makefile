@@ -6,7 +6,7 @@
 #    By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/24 14:34:08 by mlachheb          #+#    #+#              #
-#    Updated: 2021/04/27 09:23:40 by mlachheb         ###   ########.fr        #
+#    Updated: 2021/04/27 12:03:51 by mlachheb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,20 +20,21 @@ CHECKER_MAIN = checker.c
 
 PUSH_SWAP_SRC = sort_stack.c
 
-CHECKER_SRC = apply_operations.c check_sort.c read_operations.c
+CHECKER_SRC = apply_operations.c read_operations.c
 
 SHARED_SRC = shared/check_args.c shared/fatal.c shared/fill_stack.c\
 			 shared/ft_atoi.c shared/ft_split.c shared/get_next_line.c\
 			 shared/helper_functions.c shared/operations.c\
-			 shared/opers_functions.c shared/sort_operations.c
+			 shared/opers_functions.c shared/sort_operations.c\
+			 shared/check_sort.c
 
 PUSH_SWAP_OBJ = sort_stack.o
 
-CHECKER_OBJ = apply_operations.o check_sort.o read_operations.o
+CHECKER_OBJ = apply_operations.o read_operations.o
 
 SHARED_OBJ = check_args.o fatal.o fill_stack.o ft_atoi.o ft_split.o\
 			 get_next_line.o helper_functions.o operations.o\
-			 opers_functions.o sort_operations.o
+			 opers_functions.o sort_operations.o check_sort.o
 
 
 all: $(CHECKER_NAME)
@@ -52,3 +53,10 @@ fclean:
 	rm -rf $(PUSH_SWAP_NAME) $(CHECKER_NAME)
 
 re: fclean all
+
+debug:
+	gcc -Wall -Wextra -Werror -g -c $(SHARED_SRC)
+	gcc -Wall -Wextra -Werror -g -c $(CHECKER_SRC)
+	gcc -Wall -Wextra -Werror -g -c $(PUSH_SWAP_SRC)
+	gcc -Wall -Wextra -Werror -g $(PUSH_SWAP_MAIN) $(PUSH_SWAP_OBJ) $(SHARED_OBJ) -o $(PUSH_SWAP_NAME)
+	gcc -Wall -Wextra -Werror -g $(CHECKER_MAIN) $(CHECKER_OBJ) $(SHARED_OBJ) -o $(CHECKER_NAME)

@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 15:06:42 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/27 10:18:02 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 11:57:46 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@ t_stack		sort_stack(t_stack stack_a, char ***operations)
 	t_stack stack_b;
 
 	stack_b = create_stack(stack_a.size);
-	while (!is_empty(stack_a.top))
+	while (!is_empty(stack_a.top) && !check_sort_as(stack_a))
 	{
-		tmp = peek(stack_a);
-		pop(&(stack_a.top));
-		if (is_empty(stack_b.top) || tmp > peek(stack_b))
+		stack_a = check_ra(stack_a, operations);
+		if (stack_a.top >= 1)
+			stack_a = check_sa(stack_a, operations);
+		if (!check_sort_as(stack_a) || peek(stack_a) < peek(stack_b))
 		{
-			*operations = ft_resize_opers(*operations, ft_strdup("pb"));
-			stack_b = push(tmp, stack_b);
+			tmp = peek(stack_a);
+			pop(&(stack_a.top));
+			if (is_empty(stack_b.top) || tmp > peek(stack_b))
+			{	
+				*operations = ft_resize_opers(*operations, ft_strdup("pb"));
+				stack_b = push(tmp, stack_b);
+			}
+			else
+				sort_helper(&stack_a, &stack_b, tmp, operations);
 		}
-		else
-			sort_helper(&stack_a, &stack_b, tmp, operations);
 	}
 	while (!is_empty(stack_b.top))
 	{
@@ -55,7 +61,7 @@ void	sort_helper(t_stack *stack_a, t_stack *stack_b,
 	}
 	else
 	{
-		while (!is_empty(stack_b->top) && tmp < peek(*stack_b))
+		while (!is_empty(stack_b->top) && tmp < peek(*stack_b) && !check_sort_ds(*stack_b))
 		{
 			*operations = ft_resize_opers(*operations, ft_strdup("pa"));
 			tmp2 = peek(*stack_b);
@@ -64,4 +70,45 @@ void	sort_helper(t_stack *stack_a, t_stack *stack_b,
 		}
 		*stack_b = push(tmp, *stack_b);
 	}
+}
+
+t_stack	check_sa(t_stack stack, char ***operations)
+{
+	long	tmp;
+	long	tmp2;
+
+	if (!check_sort_as(stack))
+	{
+		tmp = peek(stack);
+		pop(&(stack.top));
+		tmp2 = peek(stack);
+		pop(&(stack.top));
+		if (tmp > tmp2)
+		{
+			*operations = ft_resize_opers(*operations, ft_strdup("sa"));
+			stack = push(tmp, stack);
+			stack = push(tmp2, stack);
+			return (stack);
+		}
+		stack = push(tmp2, stack);
+		stack = push(tmp, stack);
+	}
+	return (stack);
+}
+
+t_stack	check_ra(t_stack stack, char ***operations)
+{
+	long	tmp;
+
+	if(!check_sort_as(stack))
+	{
+		tmp = peek(stack);
+		if (tmp > stack.first)
+		{
+			*operations = ft_resize_opers(*operations, ft_strdup("ra"));
+			stack = r_a_b(stack);
+		}
+		return (stack);
+	}
+	return (stack);
 }
