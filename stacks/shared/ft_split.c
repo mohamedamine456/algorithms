@@ -6,11 +6,11 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:53:57 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/23 15:55:23 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 09:26:13 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stacks.h"
+#include "shared.h"
 
 char	**ft_split(char const *s, char c)
 {

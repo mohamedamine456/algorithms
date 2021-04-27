@@ -6,11 +6,11 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 10:38:52 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/26 14:01:28 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 09:25:52 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stacks.h"
+#include "shared.h"
 
 void	fatal()
 {

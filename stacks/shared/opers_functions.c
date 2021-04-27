@@ -6,11 +6,11 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 11:02:15 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/24 11:11:00 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 09:27:14 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stacks.h"
+#include "shared.h"
 
 int		ft_size_opers(char **tab)
 {

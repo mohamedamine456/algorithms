@@ -6,11 +6,11 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 10:37:50 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/25 15:36:37 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 09:25:39 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stacks.h"
+#include "shared.h"
 
 int	ft_isdigit(int c)
 {
