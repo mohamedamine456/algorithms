@@ -1,0 +1,16 @@
+{
+	"configurations": [
+	{
+		"name": "(lldb) Launch",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/push_swap",
+		"args": ["1", "2", "3", "5", "0", "-1", "9"],
+		"stopAtEntry": false,
+		"cwd": "${workspaceFolder}",
+		"environment": [],
+		"externalConsole": false,
+		"MIMode": "lldb"
+	}
+	]
+}

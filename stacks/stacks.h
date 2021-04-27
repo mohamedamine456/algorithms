@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/27 09:30:37 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 10:07:16 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int				check_sort(t_stack stack);
  * prototypes for opers_functions.c file
  */
 
-t_stack			sort_stack(t_stack stack_a);
+t_stack			sort_stack(t_stack stack_a, char ***operations);
+void			sort_helper(t_stack *stack_a, t_stack *stack_b,
+		long tmp, char ***operations);
 
 #endif
