@@ -12,7 +12,8 @@ t_stack	fill_stack(int argc, char **argv)
 	{
 		number = ft_atoi(argv[i]);
 		if (in_stack(number, stack.items, stack.top)
-			|| number > INT32_MAX || number < INT32_MIN)
+			|| number > INT32_MAX || number < INT32_MIN
+			|| ft_strlen(argv[i]) > 10)
 		{
 			free(stack.items);
 			fatal();

@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 10:46:18 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/26 16:40:31 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/27 07:57:00 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,9 +129,16 @@ int				check_sort(t_stack stack);
 /*
  * prototypes for opers_functions.c file
  */
+
 int				ft_size_opers(char **tab);
 char			**ft_resize_opers(char **old, char *chaine);
 void			ft_free_opers(char **opers);
 void			print_operations(char **opers);
+
+/*
+ * prototypes for opers_functions.c file
+ */
+
+t_stack			sort_stack(t_stack stack_a);
 
 #endif
