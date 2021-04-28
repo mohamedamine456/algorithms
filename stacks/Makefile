@@ -6,7 +6,7 @@
 #    By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/24 14:34:08 by mlachheb          #+#    #+#              #
-#    Updated: 2021/04/27 12:03:51 by mlachheb         ###   ########.fr        #
+#    Updated: 2021/04/28 12:13:24 by mlachheb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,24 @@ PUSH_SWAP_MAIN = push_swap.c
 
 CHECKER_MAIN = checker.c
 
-PUSH_SWAP_SRC = sort_stack.c
+PUSH_SWAP_SRC = sort_stack.c check_ps_sort.c
 
-CHECKER_SRC = apply_operations.c read_operations.c
+CHECKER_SRC = read_operations.c
 
 SHARED_SRC = shared/check_args.c shared/fatal.c shared/fill_stack.c\
 			 shared/ft_atoi.c shared/ft_split.c shared/get_next_line.c\
 			 shared/helper_functions.c shared/operations.c\
 			 shared/opers_functions.c shared/sort_operations.c\
-			 shared/check_sort.c
+			 shared/check_sort.c shared/apply_operations.c
 
-PUSH_SWAP_OBJ = sort_stack.o
+PUSH_SWAP_OBJ = sort_stack.o check_ps_sort.o
 
-CHECKER_OBJ = apply_operations.o read_operations.o
+CHECKER_OBJ = read_operations.o
 
 SHARED_OBJ = check_args.o fatal.o fill_stack.o ft_atoi.o ft_split.o\
 			 get_next_line.o helper_functions.o operations.o\
-			 opers_functions.o sort_operations.o check_sort.o
+			 opers_functions.o sort_operations.o check_sort.o\
+			 apply_operations.o
 
 
 all: $(CHECKER_NAME)

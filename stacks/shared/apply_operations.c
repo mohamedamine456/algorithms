@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stacks.h"
+#include "shared.h"
 
 t_stack	apply_operations(t_stack stack_a, char **opers)
 {
@@ -48,4 +48,28 @@ t_stack	apply_operations(t_stack stack_a, char **opers)
 	}
 	free(stack_b.items);
 	return (stack_a);
+}
+
+
+void	check_print_operations(char	**operations1, char	**operations2)
+{
+	int i;
+
+	i = 0;
+	if (ft_size_opers(operations1) <= ft_size_opers(operations2))
+	{
+		while (operations1 != NULL && operations1[i] != NULL)
+		{
+			printf("%s\n", operations1[i]);
+			i++;
+		}
+	}
+	else
+	{
+		while (operations2 != NULL && operations2[i] != NULL)
+		{
+			printf("%s\n", operations2[i]);
+			i++;
+		}
+	}
 }

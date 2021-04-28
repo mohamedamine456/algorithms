@@ -6,7 +6,7 @@
 /*   By: mlachheb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 07:53:12 by mlachheb          #+#    #+#             */
-/*   Updated: 2021/04/27 13:35:44 by mlachheb         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:53:26 by mlachheb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int main(int argc, char **argv)
 {
-	//int		retv;
-	//int		i = 0;
 	t_stack	stack_a;
-	char	**operations;
+	t_stack stack_tmp;
+	char	**operations1;
+	char	**operations2;
 
-	operations = NULL;
+	operations1 = NULL;
+	operations2 = NULL;
 	if (argc < 2)
 		fatal();
 	else
@@ -29,14 +30,16 @@ int main(int argc, char **argv)
 		else
 		{
 			stack_a = fill_stack(argc, argv);
-			stack_a = sort_stack(stack_a, &operations);
-			//while (i <= stack_a.top)
-			//	printf("%9ld", stack_a.items[i++]);
-			//printf("\n");
-			//i = 0;
-			//while (operations != NULL && operations[i] != NULL)
-			//	printf("%9s", operations[i++]);
+			stack_tmp = fill_stack(argc, argv);
+			stack_a = sort_stack_ra(stack_a, &operations1);
+			stack_tmp = sort_stack_rra(stack_tmp, &operations2);
+			check_print_operations(operations1, operations2);
+			ft_free_opers(operations1);
+			ft_free_opers(operations2);
+			free(stack_tmp.items);
+			free(stack_a.items);
 		}
 	}
 	return (0);
 }
+
